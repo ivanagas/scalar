@@ -17,7 +17,7 @@ withDefaults(
   <Disclosure
     v-slot="{ open }"
     as="div"
-    class="focus-within:bg-b-2 ui-not-open:hover:bg-b-2 focus-within:text-c-1 text-c-2 rounded request-item ui-not-open:bg-transparent ui-open:pb-1 ui-open:mb-3 ui-not-open:mb-0 ui-not-open:pb-0"
+    class="focus-within:bg-b-2 ui-not-open:hover:bg-b-2 focus-within:text-c-1 text-c-2 rounded request-item ui-not-open:bg-transparent ui-open:pb-1 ui-open:[&:not(:last-child)]:mb-1.5 ui-not-open:mb-0 ui-not-open:pb-0"
     :defaultOpen="defaultOpen">
     <DisclosureButton
       class="hover:text-c-1 group flex w-full items-center gap-2.5 overflow-hidden py-1.5 text-sm font-medium px-1.5">
@@ -46,7 +46,9 @@ withDefaults(
         </div>
       </div>
     </DisclosureButton>
-    <DisclosurePanel class="rounded-b diclosure-panel">
+    <DisclosurePanel
+      v-bind="$attrs"
+      class="h-full max-h-fit rounded-b diclosure-panel">
       <slot :open="open" />
     </DisclosurePanel>
   </Disclosure>
