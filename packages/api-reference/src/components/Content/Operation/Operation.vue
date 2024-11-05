@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { ErrorBoundary } from '@scalar/components'
 import type { TransformedOperation } from '@scalar/types/legacy'
 
 import { ExampleRequest } from '../../../features/ExampleRequest'
 import { ExampleResponses } from '../../../features/ExampleResponses'
 import { Anchor } from '../../Anchor'
 import { Badge } from '../../Badge'
-import ErrorBoundary from '../../ErrorBoundary.vue'
 import {
   Section,
   SectionColumn,

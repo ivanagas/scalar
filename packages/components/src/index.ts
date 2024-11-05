@@ -11,6 +11,7 @@ import {
   ScalarDropdownDivider,
   ScalarDropdownItem,
 } from './components/ScalarDropdown'
+import { ScalarErrorBoundary } from './components/ScalarErrorBoundary'
 import { ScalarFloating } from './components/ScalarFloating'
 import { type Icon, ScalarIcon } from './components/ScalarIcon'
 import { ScalarIconButton } from './components/ScalarIconButton'
@@ -48,6 +49,7 @@ export {
   ScalarDropdown,
   ScalarDropdownDivider,
   ScalarDropdownItem,
+  ScalarErrorBoundary,
   ScalarFloating,
   ScalarIcon,
   ScalarIconButton,

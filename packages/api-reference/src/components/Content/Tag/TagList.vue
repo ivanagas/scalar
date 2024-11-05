@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { ErrorBoundary } from '@scalar/components'
 import type { Spec, Tag as tagType } from '@scalar/types/legacy'
 import { computed } from 'vue'
 
 import { useNavState, useSidebar } from '../../../hooks'
-import ErrorBoundary from '../../ErrorBoundary.vue'
 import { Lazy } from '../Lazy'
 import { Operation, OperationAccordion } from '../Operation'
 import { Tag, TagAccordion } from './'
