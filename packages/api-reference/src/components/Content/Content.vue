@@ -5,6 +5,7 @@ import { computed } from 'vue'
 import { BaseUrl } from '../../features/BaseUrl'
 import { getModels, hasModels } from '../../helpers'
 import { useSidebar } from '../../hooks'
+import ErrorBoundary from '../ErrorBoundary.vue'
 import { Authentication } from './Authentication'
 import { ClientLibraries } from './ClientLibraries'
 import { Introduction } from './Introduction'
@@ -50,20 +51,22 @@ const introCardsSlot = computed(() =>
       :info="parsedSpec.info"
       :parsedSpec="parsedSpec">
       <template #[introCardsSlot]>
-        <div
-          class="introduction-card"
-          :class="{ 'introduction-card-row': layout === 'accordion' }">
-          <BaseUrl
-            class="introduction-card-item"
-            :defaultServerUrl="baseServerURL"
-            :servers="props.servers"
-            :specification="parsedSpec" />
-          <Authentication
-            class="introduction-card-item"
-            :parsedSpec="parsedSpec"
-            :proxy="proxy" />
-          <ClientLibraries class="introduction-card-item" />
-        </div>
+        <ErrorBoundary>
+          <div
+            class="introduction-card"
+            :class="{ 'introduction-card-row': layout === 'accordion' }">
+            <BaseUrl
+              class="introduction-card-item"
+              :defaultServerUrl="baseServerURL"
+              :servers="props.servers"
+              :specification="parsedSpec" />
+            <Authentication
+              class="introduction-card-item"
+              :parsedSpec="parsedSpec"
+              :proxy="proxy" />
+            <ClientLibraries class="introduction-card-item" />
+          </div>
+        </ErrorBoundary>
       </template>
     </Introduction>
     <slot

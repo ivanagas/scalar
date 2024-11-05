@@ -5,6 +5,7 @@ import { ExampleRequest } from '../../../features/ExampleRequest'
 import { ExampleResponses } from '../../../features/ExampleResponses'
 import { Anchor } from '../../Anchor'
 import { Badge } from '../../Badge'
+import ErrorBoundary from '../../ErrorBoundary.vue'
 import {
   Section,
   SectionColumn,
@@ -40,22 +41,26 @@ defineProps<{
         </SectionColumn>
         <SectionColumn>
           <div class="examples">
-            <ExampleRequest
-              fallback
-              :operation="operation">
-              <template #header>
-                <EndpointPath
-                  class="example-path"
-                  :deprecated="operation.information?.deprecated"
-                  :path="operation.path" />
-              </template>
-              <template #footer>
-                <TestRequestButton :operation="operation" />
-              </template>
-            </ExampleRequest>
-            <ExampleResponses
-              :operation="operation"
-              style="margin-top: 12px" />
+            <ErrorBoundary>
+              <ExampleRequest
+                fallback
+                :operation="operation">
+                <template #header>
+                  <EndpointPath
+                    class="example-path"
+                    :deprecated="operation.information?.deprecated"
+                    :path="operation.path" />
+                </template>
+                <template #footer>
+                  <TestRequestButton :operation="operation" />
+                </template>
+              </ExampleRequest>
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <ExampleResponses
+                :operation="operation"
+                style="margin-top: 12px" />
+            </ErrorBoundary>
           </div>
         </SectionColumn>
       </SectionColumns>

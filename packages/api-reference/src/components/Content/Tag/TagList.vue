@@ -3,6 +3,7 @@ import type { Spec, Tag as tagType } from '@scalar/types/legacy'
 import { computed } from 'vue'
 
 import { useNavState, useSidebar } from '../../../hooks'
+import ErrorBoundary from '../../ErrorBoundary.vue'
 import { Lazy } from '../Lazy'
 import { Operation, OperationAccordion } from '../Operation'
 import { Tag, TagAccordion } from './'
@@ -43,11 +44,13 @@ const isLazy = props.layout !== 'accordion' && !hash.value.startsWith('model')
         :id="getOperationId(operation, tag)"
         :key="`${operation.httpVerb}-${operation.operationId}`"
         :isLazy="operationIndex > 0">
-        <Component
-          :is="endpointLayout"
-          :id="getOperationId(operation, tag)"
-          :operation="operation"
-          :tag="tag" />
+        <ErrorBoundary>
+          <Component
+            :is="endpointLayout"
+            :id="getOperationId(operation, tag)"
+            :operation="operation"
+            :tag="tag" />
+        </ErrorBoundary>
       </Lazy>
     </Component>
   </Lazy>
