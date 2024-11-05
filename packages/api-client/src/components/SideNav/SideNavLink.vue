@@ -17,7 +17,12 @@ const { activeWorkspace } = useWorkspace()
   <router-link
     activeClass="active-link"
     class="flex flex-col items-center gap-1 group no-underline"
-    :to="`/workspace/${activeWorkspace.uid}/${name}`">
+    :to="{
+      name: `${name}.default`,
+      params: {
+        workspace: activeWorkspace.uid,
+      },
+    }">
     <div
       class="min-w-[37px] max-w-[37px] group-hover:bg-b-2 active:text-c-1 flex items-center justify-center rounded-lg p-[8px] scalar-app-nav-padding text-c-3"
       :class="{
