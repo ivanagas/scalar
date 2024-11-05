@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ErrorBoundary } from '@scalar/components'
+import { ScalarErrorBoundary } from '@scalar/components'
 import type { Server, Spec } from '@scalar/types/legacy'
 import { computed } from 'vue'
 
@@ -51,7 +51,7 @@ const introCardsSlot = computed(() =>
       :info="parsedSpec.info"
       :parsedSpec="parsedSpec">
       <template #[introCardsSlot]>
-        <ErrorBoundary>
+        <ScalarErrorBoundary>
           <div
             class="introduction-card"
             :class="{ 'introduction-card-row': layout === 'accordion' }">
@@ -66,7 +66,7 @@ const introCardsSlot = computed(() =>
               :proxy="proxy" />
             <ClientLibraries class="introduction-card-item" />
           </div>
-        </ErrorBoundary>
+        </ScalarErrorBoundary>
       </template>
     </Introduction>
     <slot

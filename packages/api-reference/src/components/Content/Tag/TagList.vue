@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ErrorBoundary } from '@scalar/components'
+import { ScalarErrorBoundary } from '@scalar/components'
 import type { Spec, Tag as tagType } from '@scalar/types/legacy'
 import { computed } from 'vue'
 
@@ -44,13 +44,13 @@ const isLazy = props.layout !== 'accordion' && !hash.value.startsWith('model')
         :id="getOperationId(operation, tag)"
         :key="`${operation.httpVerb}-${operation.operationId}`"
         :isLazy="operationIndex > 0">
-        <ErrorBoundary>
+        <ScalarErrorBoundary>
           <Component
             :is="endpointLayout"
             :id="getOperationId(operation, tag)"
             :operation="operation"
             :tag="tag" />
-        </ErrorBoundary>
+        </ScalarErrorBoundary>
       </Lazy>
     </Component>
   </Lazy>
