@@ -1,5 +1,11 @@
 # @scalar/snippetz
 
+## 0.2.19
+
+### Patch Changes
+
+- 4df5387: feat: new php/curl plugin
+
 ## 0.2.18
 
 ### Patch Changes

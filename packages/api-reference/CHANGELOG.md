@@ -1,5 +1,14 @@
 # @scalar/api-reference
 
+## 1.28.11
+
+### Patch Changes
+
+- 6bb9f38: fix: empty search on references
+- Updated dependencies [4df5387]
+  - @scalar/snippetz@0.2.19
+  - @scalar/api-client@2.3.11
+
 ## 1.28.10
 
 ### Patch Changes

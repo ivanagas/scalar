@@ -1,5 +1,12 @@
 # @scalar/api-client
 
+## 2.3.11
+
+### Patch Changes
+
+- Updated dependencies [4df5387]
+  - @scalar/snippetz@0.2.19
+
 ## 2.3.10
 
 ### Patch Changes
